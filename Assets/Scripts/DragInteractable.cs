@@ -19,7 +19,7 @@ public class DragInteractable : XRBaseInteractable
 
     public UnityEvent onDragStart = new UnityEvent();
     public UnityEvent onDragEnd = new UnityEvent();
-    public UnityEvent onDragUpdate = new UnityEvent();
+    public DragEvent onDragUpdate = new DragEvent();
 
     Coroutine m_drag = null;
 
@@ -70,6 +70,7 @@ public class DragInteractable : XRBaseInteractable
             Vector3 projectedPoint = Vector3.Project(InteractorLocalPosition, line.normalized);
 
             dragPercent = InverseLerp(startDragPosition.localPosition, endDragPosition.localPosition, projectedPoint);
+
 
             onDragUpdate?.Invoke(dragPercent);
 
