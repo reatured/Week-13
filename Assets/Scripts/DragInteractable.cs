@@ -65,7 +65,7 @@ public class DragInteractable : XRBaseInteractable
             Vector3 line = startDragPosition.localPosition - endDragPosition.localPosition;
 
             Vector3 InteractorLocalPosition = startDragPosition.parent.InverseTransformPoint(m_interactor.transform.position);
-            Debug.Log(InteractorLocalPosition);
+
 
             Vector3 projectedPoint = Vector3.Project(InteractorLocalPosition, line.normalized);
 
@@ -81,18 +81,14 @@ public class DragInteractable : XRBaseInteractable
     [Obsolete]
     protected override void OnSelectEntering(XRBaseInteractor interactor)
     {   
-        Debug.Log("Dragging");
         m_interactor = interactor;
         StartDrag();
         base.OnSelectEntering(interactor);
-        
-
     }
 
     [Obsolete]
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
-        Debug.Log("Exiting");
         EndDrag();
         m_interactor = null;
         base.OnSelectExited(interactor);

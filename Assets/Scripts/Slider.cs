@@ -35,7 +35,6 @@ public class Slider : MonoBehaviour
     {
         
         transform.position = Vector3.Lerp(startPosition.position, endPosition.position, percent);
-        Debug.Log("Update position:: " + transform.position);
         position = transform.position;
     }
 
