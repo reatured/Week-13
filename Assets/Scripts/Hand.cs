@@ -16,6 +16,8 @@ public class Hand : MonoBehaviour
     public TextMeshProUGUI debugText = null;
     public float isTracked; 
     public HandType type = HandType.Left;
+
+    
     public bool isHidden
     {
         get;
@@ -132,7 +134,7 @@ public class Hand : MonoBehaviour
 
     void OnGrab(XRBaseInteractable grabbedObject)
     {
-        Debug.Log("Grabbing stuff");
+        //Debug.Log("Grabbing stuff");
         HandControl ctrl = grabbedObject.GetComponent<HandControl>();
         Debug.Log(ctrl.name);
         if (ctrl != null)
@@ -140,7 +142,7 @@ public class Hand : MonoBehaviour
             if (ctrl.hideHand)
             {
                 hide();
-                Debug.Log("HideHand");
+                //Debug.Log("HideHand");
             }
         }
     }
